@@ -59,19 +59,14 @@ public class UserTemplateTest extends AbstractFacebookApiTest {
 		assertEquals(Float.valueOf(-6), profile.getTimezone());  // should be -6 ???
 		assertEquals(toDate("2010-08-22T00:01:59+0000"), profile.getUpdatedTime());
 		assertTrue(profile.isVerified());
-		assertEquals("Just some dude", profile.getAbout());
 		assertEquals("06/09/1971", profile.getBirthday());
 		assertEquals("111762725508574", profile.getLocation().getId());
 		assertEquals("Dallas, Texas", profile.getLocation().getName());
 		assertEquals("107925612568471", profile.getHometown().getId());
 		assertEquals("Plano, Texas", profile.getHometown().getName());
-		assertEquals("Jedi", profile.getReligion());
-		assertEquals("Galactic Republic", profile.getPolitical());
 		assertEquals("\"May the force be with you.\" - Common Jedi greeting", profile.getQuotes());
-		assertEquals("Married", profile.getRelationshipStatus());
 		assertEquals("533477039", profile.getSignificantOther().getId());
 		assertEquals("Raymie Walls", profile.getSignificantOther().getName());
-		assertEquals("http://www.habuma.com", profile.getWebsite());
 		assertEquals(3, profile.getInspirationalPeople().size());
 		assertEquals("121966051173827", profile.getInspirationalPeople().get(0).getId());
 		assertEquals("Homer Simpson", profile.getInspirationalPeople().get(0).getName());
@@ -98,8 +93,6 @@ public class UserTemplateTest extends AbstractFacebookApiTest {
 		assertEquals("Cal Ripken, Jr.", profile.getFavoriteAtheletes().get(1).getName());
 		assertEquals("62975399193", profile.getFavoriteAtheletes().get(2).getId());
 		assertEquals("Michael Jordan", profile.getFavoriteAtheletes().get(2).getName());
-		assertWorkHistory(profile.getWork());
-		assertEducationHistory(profile.getEducation());
 	}
 	
 	@Test
@@ -333,38 +326,4 @@ public class UserTemplateTest extends AbstractFacebookApiTest {
 		assertEquals(Locale.US, profile.getLocale());
 		assertEquals("male", profile.getGender());
 	}
-
-	private void assertEducationHistory(List<EducationExperience> educationHistory) {
-		assertEquals(2, educationHistory.size());
-		assertEquals("College", educationHistory.get(0).getType());
-		assertEquals("103768553006294", educationHistory.get(0).getSchool().getId());
-		assertEquals("New Mexico", educationHistory.get(0).getSchool().getName());
-		assertEquals("117348274968344", educationHistory.get(0).getYear().getId());
-		assertEquals("1994", educationHistory.get(0).getYear().getName());
-		List<Reference> concentration = educationHistory.get(0).getConcentration();
-		assertEquals(2, concentration.size());
-		assertEquals("192578844099494", concentration.get(0).getId());
-		assertEquals("Computer Science", concentration.get(0).getName());
-		assertEquals("146136662113078", concentration.get(1).getId());
-		assertEquals("Mathematics", concentration.get(1).getName());
-		assertEquals("High School", educationHistory.get(1).getType());
-		assertEquals("115157218496067", educationHistory.get(1).getSchool().getId());
-		assertEquals("Jal High School", educationHistory.get(1).getSchool().getName());
-		assertEquals("127132740657422", educationHistory.get(1).getYear().getId());
-		assertEquals("1989", educationHistory.get(1).getYear().getName());
-		assertNull(educationHistory.get(1).getConcentration());
-	}
-
-	private void assertWorkHistory(List<WorkEntry> workHistory) {
-		assertEquals(2, workHistory.size());
-		assertEquals("119387448093014", workHistory.get(0).getEmployer().getId());
-		assertEquals("SpringSource", workHistory.get(0).getEmployer().getName());
-		assertEquals("0000-00", workHistory.get(0).getStartDate());
-		assertEquals("0000-00", workHistory.get(0).getEndDate());
-		assertEquals("298846151879", workHistory.get(1).getEmployer().getId());
-		assertEquals("Improving", workHistory.get(1).getEmployer().getName());
-		assertEquals("2009-03", workHistory.get(1).getStartDate());
-		assertEquals("2010-05", workHistory.get(1).getEndDate());
-	}
-
 }

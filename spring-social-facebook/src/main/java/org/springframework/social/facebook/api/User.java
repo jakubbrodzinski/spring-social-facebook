@@ -30,9 +30,9 @@ import java.util.Locale;
 public class User extends FacebookObject implements Serializable {
 
 	private String id;
+	//deprecated
+//	private String about;
 
-	private String about;
-	
 	private Location address;
 	
 	private AgeRange ageRange = AgeRange.UNKNOWN;
@@ -44,8 +44,8 @@ public class User extends FacebookObject implements Serializable {
 	private Currency currency;
 	
 	private List<Device> devices;
-	
-	private List<EducationExperience> education;
+	//deprecated
+//	private List<EducationExperience> education;
 	
 	private String email;
 	
@@ -64,8 +64,8 @@ public class User extends FacebookObject implements Serializable {
 	private boolean installed;
 	
 	private String installType;
-	
-	private List<String> interestedIn;
+	//deprecated
+//	private List<String> interestedIn;
 
 	private boolean isIdentityVerified;
 	
@@ -88,17 +88,17 @@ public class User extends FacebookObject implements Serializable {
 	private String nameFormat;
 	
 	private PaymentPricePoints paymentPricePoints;
-
-	private String political;
+	//deprecated
+//	private String political;
 
 	private String quotes;
-
-	private String relationshipStatus;
-
-	private String religion;
+	//deprecated
+//	private String relationshipStatus;
+	// deprecated
+//	private String religion;
 
 	private SecuritySettings securitySettings;
-	
+	//deprecated
 	private Reference significantOther;
 	
 	private List<Experience> sports;
@@ -114,10 +114,10 @@ public class User extends FacebookObject implements Serializable {
 	private Boolean verified;
 
 	private boolean viewerCanSendGift;
-	
-	private String website;
-
-	private List<WorkEntry> work;
+	//deprecated
+//	private String website;
+	//deprecated
+//	private List<WorkEntry> work;
 	
 	private VideoUploadLimits videoUploadLimits;
 	
@@ -131,15 +131,6 @@ public class User extends FacebookObject implements Serializable {
 		this.gender = gender;
 		this.locale = locale;
 	}
-
-	/**
-	 * The user's Facebook ID
-	 * @return The user's Facebook ID
-	 */
-	public String getId() {
-		return id;
-	}
-	
 	/**
 	 * The user's address
 	 * @return the user's address.
@@ -148,6 +139,14 @@ public class User extends FacebookObject implements Serializable {
 	@Deprecated
 	public Location getAddress() {
 		return address;
+	}
+
+	/**
+	 * The user's Facebook ID
+	 * @return The user's Facebook ID
+	 */
+	public String getId() {
+		return id;
 	}
 	
 	/**
@@ -201,9 +200,6 @@ public class User extends FacebookObject implements Serializable {
 		return gender;
 	}
 
-	public List<String> getInterestedIn() {
-		return interestedIn;
-	}
 	
 	/**
 	 * The user's locale
@@ -229,15 +225,6 @@ public class User extends FacebookObject implements Serializable {
 	 */
 	public String getLink() {
 		return link;
-	}
-
-	/**
-	 * A link to the user's personal website. Available only with "user_website" permission.
-	 * 
-	 * @return a link to the user's personal website.
-	 */
-	public String getWebsite() {
-		return website;
 	}
 
 	/**
@@ -274,15 +261,6 @@ public class User extends FacebookObject implements Serializable {
 	 */
 	public Boolean isVerified() {
 		return verified;
-	}
-	
-	/**
-	 * The user's brief about blurb.
-	 * Available only with "user_about_me" permission for the authenticated user for the authenticated user's friends.
-	 * @return the user's about blurb, if available.
-	 */
-	public String getAbout() {
-		return about;
 	}
 
 	/**
@@ -347,15 +325,6 @@ public class User extends FacebookObject implements Serializable {
 	public List<Reference> getFavoriteAtheletes() {
 		return favoriteAthletes;
 	}
-
-	/**
-	 * The user's religion. 
-	 * Available only with "user_religion_politics" permission.
-	 * @return the user's religion, if available.
-	 */
-	public String getReligion() {
-		return religion;
-	}
 	
 	/**
 	 * @return a {@link PaymentPricePoints} object
@@ -365,30 +334,12 @@ public class User extends FacebookObject implements Serializable {
 	}
 
 	/**
-	 * The user's political affiliation. 
-	 * Available only with "user_religion_politics" permission.
-	 * @return the user's political affiliation, if available.
-	 */
-	public String getPolitical() {
-		return political;
-	}
-
-	/**
 	 * The user's quotations. 
 	 * Available only with "user_about_me" permission.
 	 * @return the user's quotations, if available.
 	 */
 	public String getQuotes() {
 		return quotes;
-	}
-
-	/**
-	 * The user's relationship status. 
-	 * Available only with "user_relationships" permission.
-	 * @return the user's relationship status, if available.
-	 */
-	public String getRelationshipStatus() {
-		return relationshipStatus;
 	}
 
 	public SecuritySettings getSecuritySettings() {
@@ -410,24 +361,6 @@ public class User extends FacebookObject implements Serializable {
 
 	public boolean viewerCanSendGift() {
 		return viewerCanSendGift;
-	}
-	
-	/**
-	 * The user's work history.
-	 * Available only with "user_work_history" permission.
-	 * @return a list of {@link WorkEntry} items, one for each entry in the user's work history.
-	 */
-	public List<WorkEntry> getWork() {
-		return work;
-	}
-	
-	/**
-	 * The user's education history.
-	 * Available only with "user_education_history" permission.
-	 * @return a list of {@link EducationExperience} items, one for each entry in the user's education history.
-	 */
-	public List<EducationExperience> getEducation() {
-		return education;
 	}
 	
 	/**
